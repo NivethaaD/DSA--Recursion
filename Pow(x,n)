@@ -1,0 +1,17 @@
+class Solution:
+    def calci(self,x,n):
+        if n == 0:
+            return 1
+        halfValue = self.calci(x,n//2)
+        if n % 2 == 0:
+            halfValue = halfValue * halfValue
+        else:
+            halfValue = halfValue * halfValue * x
+        return halfValue
+
+    def myPow(self, x: float, n: int) -> float:
+        if n < 0:
+            return 1 / self.calci(x,-n)
+        return self.calci(x,n)
+        
+        
