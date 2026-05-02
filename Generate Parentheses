@@ -1,0 +1,17 @@
+class Solution:
+    def solve(self,s,n,o,c,ans):
+        if len(s) == n*2:
+            ans.append(s)
+            return
+        if o<n:
+            self.solve(s+'(',n,o+1,c,ans)
+        if c<o:
+            self.solve(s+')',n,o,c+1,ans)
+    
+    def generateParenthesis(self, n: int) -> List[str]:
+        s = ''
+        o = 0
+        c = 0
+        ans = list()
+        self.solve(s,n,o,c,ans)
+        return ans
