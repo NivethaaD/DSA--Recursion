@@ -1,0 +1,16 @@
+class Solution:
+    def func(self, nums, ind, n, ans, res):
+        if(ind>=n):
+            res.append(ans.copy())
+            return
+        ans.append(nums[ind])
+        self.func(nums,ind+1,n,ans,res)
+        ans.pop()
+        self.func(nums,ind+1,n,ans,res)
+
+    def subsets(self, nums: List[int]) -> List[List[int]]:
+        ans = []
+        res = []
+        n = len(nums)
+        self.func(nums,0,n,ans,res)
+        return res
