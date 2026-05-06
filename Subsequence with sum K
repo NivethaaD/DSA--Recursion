@@ -1,0 +1,23 @@
+class Solution:
+    def func(self, nums, ind, n, sums, k):
+        if(ind>=n):
+            if sums == k:
+                return 1
+            return 0
+
+        check1 = self.func(nums,ind+1,n,sums+nums[ind],k)
+        check2 = self.func(nums,ind+1,n,sums,k)
+        
+        return check1+check2
+    
+
+    def checkSubsequenceSum(self, nums, k):
+        n = len(nums)
+        sums = 0
+        ans = self.func(nums,0,n,sums, k)
+        if ans:
+            return True
+        return False
+        
+
+    
